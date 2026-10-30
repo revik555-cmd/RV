@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="en">
-<head>
+<html lang="en" class=""><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Spirits Price List</title>
@@ -180,6 +179,8 @@ li.row.on .qty { border-color: var(--accent); }
 .qty button:focus-visible, .qty input:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .line-sum { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .line-sum:empty { display: none; }
+html:not(.js) .qty, html:not(.js) .cart, html:not(.js) .controls, html:not(.js) .js-only { display: none !important; }
+html:not(.js) body { padding-bottom: 0; }
 @media (pointer: coarse) { .qty button { width: 42px; height: 40px; } .qty input { width: 42px; height: 40px; } }
 
 .cart { position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; background: var(--ink); color: var(--bg); padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -6px 24px rgba(0, 0, 0, .18); }
@@ -234,7 +235,7 @@ footer p { margin: 0 0 6px; max-width: 65ch; }
   <div class="wrap">
     <div class="eyebrow">Wholesale · Spirits &amp; Liqueurs</div>
     <h1>Spirits Price List</h1>
-    <div class="facts" id="facts"></div>
+    <div class="facts" id="facts"><span><b>76</b> products</span><span><b>6</b> categories</span><span>From <b>4 500</b> to <b>81 000</b> per bottle</span></div>
   </div>
 </header>
 
@@ -242,9 +243,9 @@ footer p { margin: 0 0 6px; max-width: 65ch; }
   <div class="wrap">
     <div class="controls">
       <label class="search" for="q">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"></circle><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
         <input id="q" type="search" placeholder="Search brands, e.g. Chivas, VSOP, rum" autocomplete="off" aria-label="Search products">
-        <button class="clear" id="clear" type="button" aria-label="Clear search" hidden>×</button>
+        <button class="clear" id="clear" type="button" aria-label="Clear search" hidden="">×</button>
       </label>
       <select id="sort" aria-label="Sort products">
         <option value="list">Order as listed</option>
@@ -253,24 +254,744 @@ footer p { margin: 0 0 6px; max-width: 65ch; }
         <option value="az">Name: A to Z</option>
       </select>
     </div>
-    <nav class="tabs" id="tabs" aria-label="Categories"></nav>
+    <nav class="tabs" id="tabs" aria-label="Categories"><a class="tab" href="#vodka" data-id="vodka" style="--c: var(--vodka)"><span class="dot"></span>Vodka<span class="n">16</span></a><a class="tab" href="#gin" data-id="gin" style="--c: var(--gin)"><span class="dot"></span>Gin<span class="n">8</span></a><a class="tab" href="#whiskey" data-id="whiskey" style="--c: var(--whiskey)"><span class="dot"></span>Whiskey<span class="n">12</span></a><a class="tab" href="#tequila" data-id="tequila" style="--c: var(--tequila)"><span class="dot"></span>Tequila<span class="n">10</span></a><a class="tab" href="#cognac" data-id="cognac" style="--c: var(--cognac)"><span class="dot"></span>Cognac &amp; Brandy<span class="n">7</span></a><a class="tab" href="#other" data-id="other" style="--c: var(--other)"><span class="dot"></span>Other Beverages<span class="n">23</span></a></nav>
   </div>
 </div>
 
 <main>
-  <div class="wrap" id="list"></div>
+  <div class="wrap" id="list"><section class="cat" id="vodka" style="--c: var(--vodka)" aria-labelledby="h-vodka">
+      <div class="cat-head">
+        <h2 id="h-vodka">Vodka</h2>
+        <span class="range">16 products · <b>4 500</b> – <b>23 500</b></span>
+      </div>
+      <ul class="rows"><li class="row" data-k="vodka-0">
+          <div class="name-line"><span class="name">Absolut</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 300</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Absolut" disabled="">−</button>
+            <input id="q-vodka-0" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Absolut, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Absolut">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-1">
+          <div class="name-line"><span class="name">Finlandia</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 100</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Finlandia" disabled="">−</button>
+            <input id="q-vodka-1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Finlandia, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Finlandia">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-2">
+          <div class="name-line"><span class="name">Danzka</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 600</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Danzka" disabled="">−</button>
+            <input id="q-vodka-2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Danzka, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Danzka">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-3">
+          <div class="name-line"><span class="name">Belenkaya</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">5 600</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Belenkaya" disabled="">−</button>
+            <input id="q-vodka-3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Belenkaya, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Belenkaya">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-4">
+          <div class="name-line"><span class="name">Boris Jelzin</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">5 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Boris Jelzin" disabled="">−</button>
+            <input id="q-vodka-4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Boris Jelzin, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Boris Jelzin">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-5">
+          <div class="name-line"><span class="name">Rasputin</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">4 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Rasputin" disabled="">−</button>
+            <input id="q-vodka-5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Rasputin, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Rasputin">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-6">
+          <div class="name-line"><span class="name">Divine</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">5 200</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Divine" disabled="">−</button>
+            <input id="q-vodka-6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Divine, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Divine">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-7">
+          <div class="name-line"><span class="name">Russian Standard Gold</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 200</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Russian Standard Gold" disabled="">−</button>
+            <input id="q-vodka-7" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Russian Standard Gold, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Russian Standard Gold">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-8">
+          <div class="name-line"><span class="name">Russian Standard Platinum</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 400</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Russian Standard Platinum" disabled="">−</button>
+            <input id="q-vodka-8" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Russian Standard Platinum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Russian Standard Platinum">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-9">
+          <div class="name-line"><span class="name">Smirnoff Red</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 200</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Smirnoff Red" disabled="">−</button>
+            <input id="q-vodka-9" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Smirnoff Red, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Smirnoff Red">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-10">
+          <div class="name-line"><span class="name">Stolichnaya Gold</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 900</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Stolichnaya Gold" disabled="">−</button>
+            <input id="q-vodka-10" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Stolichnaya Gold, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Stolichnaya Gold">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-11">
+          <div class="name-line"><span class="name">Stolichnaya</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 200</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Stolichnaya" disabled="">−</button>
+            <input id="q-vodka-11" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Stolichnaya, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Stolichnaya">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-12">
+          <div class="name-line"><span class="name">Grey Goose</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">23 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Grey Goose" disabled="">−</button>
+            <input id="q-vodka-12" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Grey Goose, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Grey Goose">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-13">
+          <div class="name-line"><span class="name">Koskenkorva</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 200</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Koskenkorva" disabled="">−</button>
+            <input id="q-vodka-13" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Koskenkorva, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Koskenkorva">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-14">
+          <div class="name-line"><span class="name">Nemiroff Honey Pepper</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">5 800</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Nemiroff Honey Pepper" disabled="">−</button>
+            <input id="q-vodka-14" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Nemiroff Honey Pepper, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Nemiroff Honey Pepper">+</button>
+          </div>
+        </li><li class="row" data-k="vodka-15">
+          <div class="name-line"><span class="name">Nemiroff Original</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">5 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Nemiroff Original" disabled="">−</button>
+            <input id="q-vodka-15" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Nemiroff Original, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Nemiroff Original">+</button>
+          </div>
+        </li></ul>
+    </section><section class="cat" id="gin" style="--c: var(--gin)" aria-labelledby="h-gin">
+      <div class="cat-head">
+        <h2 id="h-gin">Gin</h2>
+        <span class="range">8 products · <b>6 300</b> – <b>23 000</b></span>
+      </div>
+      <ul class="rows"><li class="row" data-k="gin-0">
+          <div class="name-line"><span class="name">Beefeater Dry</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 400</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Beefeater Dry" disabled="">−</button>
+            <input id="q-gin-0" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Beefeater Dry, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Beefeater Dry">+</button>
+          </div>
+        </li><li class="row" data-k="gin-1">
+          <div class="name-line"><span class="name">Beefeater Pink</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">11 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Beefeater Pink" disabled="">−</button>
+            <input id="q-gin-1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Beefeater Pink, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Beefeater Pink">+</button>
+          </div>
+        </li><li class="row" data-k="gin-2">
+          <div class="name-line"><span class="name">Bombay Sapphire</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">11 800</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Bombay Sapphire" disabled="">−</button>
+            <input id="q-gin-2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Bombay Sapphire, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Bombay Sapphire">+</button>
+          </div>
+        </li><li class="row" data-k="gin-3">
+          <div class="name-line"><span class="name">Hendrick's</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">23 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Hendrick's" disabled="">−</button>
+            <input id="q-gin-3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Hendrick's, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Hendrick's">+</button>
+          </div>
+        </li><li class="row" data-k="gin-4">
+          <div class="name-line"><span class="name">Gordon's London Gin</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">20 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Gordon's London Gin" disabled="">−</button>
+            <input id="q-gin-4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Gordon's London Gin, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Gordon's London Gin">+</button>
+          </div>
+        </li><li class="row" data-k="gin-5">
+          <div class="name-line"><span class="name">Gordon's London Gin</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">12 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>PET bottle</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Gordon's London Gin PET bottle" disabled="">−</button>
+            <input id="q-gin-5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Gordon's London Gin PET bottle, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Gordon's London Gin PET bottle">+</button>
+          </div>
+        </li><li class="row" data-k="gin-6">
+          <div class="name-line"><span class="name">Tanqueray</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">6 400</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Tanqueray" disabled="">−</button>
+            <input id="q-gin-6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Tanqueray, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Tanqueray">+</button>
+          </div>
+        </li><li class="row" data-k="gin-7">
+          <div class="name-line"><span class="name">Tanqueray London Dry</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">6 300</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Tanqueray London Dry" disabled="">−</button>
+            <input id="q-gin-7" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Tanqueray London Dry, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Tanqueray London Dry">+</button>
+          </div>
+        </li></ul>
+    </section><section class="cat" id="whiskey" style="--c: var(--whiskey)" aria-labelledby="h-whiskey">
+      <div class="cat-head">
+        <h2 id="h-whiskey">Whiskey</h2>
+        <span class="range">12 products · <b>8 200</b> – <b>45 000</b></span>
+      </div>
+      <ul class="rows"><li class="row" data-k="whiskey-0">
+          <div class="name-line"><span class="name">Chivas Regal 12</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">20 800</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Chivas Regal 12" disabled="">−</button>
+            <input id="q-whiskey-0" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Chivas Regal 12, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Chivas Regal 12">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-1">
+          <div class="name-line"><span class="name">Chivas Regal 15</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">37 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Chivas Regal 15" disabled="">−</button>
+            <input id="q-whiskey-1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Chivas Regal 15, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Chivas Regal 15">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-2">
+          <div class="name-line"><span class="name">Chivas Regal 18</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">45 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Chivas Regal 18" disabled="">−</button>
+            <input id="q-whiskey-2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Chivas Regal 18, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Chivas Regal 18">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-3">
+          <div class="name-line"><span class="name">Jack Daniel's Black Label</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">16 800</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Jack Daniel's Black Label" disabled="">−</button>
+            <input id="q-whiskey-3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Jack Daniel's Black Label, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Jack Daniel's Black Label">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-4">
+          <div class="name-line"><span class="name">Jack Daniel's Honey</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">14 900</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Jack Daniel's Honey" disabled="">−</button>
+            <input id="q-whiskey-4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Jack Daniel's Honey, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Jack Daniel's Honey">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-5">
+          <div class="name-line"><span class="name">Jack Daniel's Tennessee Apple</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">14 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Jack Daniel's Tennessee Apple" disabled="">−</button>
+            <input id="q-whiskey-5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Jack Daniel's Tennessee Apple, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Jack Daniel's Tennessee Apple">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-6">
+          <div class="name-line"><span class="name">Macallan Quest</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">39 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Macallan Quest" disabled="">−</button>
+            <input id="q-whiskey-6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Macallan Quest, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Macallan Quest">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-7">
+          <div class="name-line"><span class="name">Jameson</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">12 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Jameson" disabled="">−</button>
+            <input id="q-whiskey-7" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Jameson, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Jameson">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-8">
+          <div class="name-line"><span class="name">Teacher's Highland Cream</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 200</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Teacher's Highland Cream" disabled="">−</button>
+            <input id="q-whiskey-8" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Teacher's Highland Cream, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Teacher's Highland Cream">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-9">
+          <div class="name-line"><span class="name">The Dalmore</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">36 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one The Dalmore" disabled="">−</button>
+            <input id="q-whiskey-9" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of The Dalmore, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one The Dalmore">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-10">
+          <div class="name-line"><span class="name">Ballantine's 12 Year Old</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">17 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Ballantine's 12 Year Old" disabled="">−</button>
+            <input id="q-whiskey-10" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Ballantine's 12 Year Old, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Ballantine's 12 Year Old">+</button>
+          </div>
+        </li><li class="row" data-k="whiskey-11">
+          <div class="name-line"><span class="name">Ballantine's Finest</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 300</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Ballantine's Finest" disabled="">−</button>
+            <input id="q-whiskey-11" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Ballantine's Finest, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Ballantine's Finest">+</button>
+          </div>
+        </li></ul>
+    </section><section class="cat" id="tequila" style="--c: var(--tequila)" aria-labelledby="h-tequila">
+      <div class="cat-head">
+        <h2 id="h-tequila">Tequila</h2>
+        <span class="range">10 products · <b>10 500</b> – <b>81 000</b></span>
+      </div>
+      <ul class="rows"><li class="row" data-k="tequila-0">
+          <div class="name-line"><span class="name">Patrón Silver</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">24 800</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Patrón Silver" disabled="">−</button>
+            <input id="q-tequila-0" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Patrón Silver, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Patrón Silver">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-1">
+          <div class="name-line"><span class="name">Patrón Reposado</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">29 900</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Patrón Reposado" disabled="">−</button>
+            <input id="q-tequila-1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Patrón Reposado, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Patrón Reposado">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-2">
+          <div class="name-line"><span class="name">Patrón Añejo</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">36 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Patrón Añejo" disabled="">−</button>
+            <input id="q-tequila-2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Patrón Añejo, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Patrón Añejo">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-3">
+          <div class="name-line"><span class="name">Don Julio Blanco</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">25 000</div>
+          <div class="meta"><span class="pill vol-small">0.7 L</span><span class="pill">38% ABV</span><span class="perl">≈ 35 700 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Don Julio Blanco" disabled="">−</button>
+            <input id="q-tequila-3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Don Julio Blanco, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Don Julio Blanco">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-4">
+          <div class="name-line"><span class="name">Don Julio Añejo</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">37 000</div>
+          <div class="meta"><span class="pill vol-small">0.7 L</span><span class="pill">38% ABV</span><span class="perl">≈ 52 900 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Don Julio Añejo" disabled="">−</button>
+            <input id="q-tequila-4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Don Julio Añejo, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Don Julio Añejo">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-5">
+          <div class="name-line"><span class="name">Don Julio Reposado</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">30 500</div>
+          <div class="meta"><span class="pill vol-small">0.7 L</span><span class="pill">38% ABV</span><span class="perl">≈ 43 600 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Don Julio Reposado" disabled="">−</button>
+            <input id="q-tequila-5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Don Julio Reposado, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Don Julio Reposado">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-6">
+          <div class="name-line"><span class="name">Cuervo Especial Gold</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">10 700</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Cuervo Especial Gold" disabled="">−</button>
+            <input id="q-tequila-6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Cuervo Especial Gold, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Cuervo Especial Gold">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-7">
+          <div class="name-line"><span class="name">José Cuervo Silver</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">10 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one José Cuervo Silver" disabled="">−</button>
+            <input id="q-tequila-7" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of José Cuervo Silver, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one José Cuervo Silver">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-8">
+          <div class="name-line"><span class="name">Olmeca Silver &amp; Gold</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">16 900</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Olmeca Silver &amp; Gold" disabled="">−</button>
+            <input id="q-tequila-8" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Olmeca Silver &amp; Gold, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Olmeca Silver &amp; Gold">+</button>
+          </div>
+        </li><li class="row" data-k="tequila-9">
+          <div class="name-line"><span class="name">Don Julio 1942</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">81 000</div>
+          <div class="meta"><span class="pill vol-small">0.7 L</span><span class="perl">≈ 115 700 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Don Julio 1942" disabled="">−</button>
+            <input id="q-tequila-9" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Don Julio 1942, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Don Julio 1942">+</button>
+          </div>
+        </li></ul>
+    </section><section class="cat" id="cognac" style="--c: var(--cognac)" aria-labelledby="h-cognac">
+      <div class="cat-head">
+        <h2 id="h-cognac">Cognac &amp; Brandy</h2>
+        <span class="range">7 products · <b>7 000</b> – <b>59 000</b></span>
+      </div>
+      <ul class="rows"><li class="row" data-k="cognac-0">
+          <div class="name-line"><span class="name">Camus Intense Very Special</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">19 900</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Camus Intense Very Special" disabled="">−</button>
+            <input id="q-cognac-0" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Camus Intense Very Special, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Camus Intense Very Special">+</button>
+          </div>
+        </li><li class="row" data-k="cognac-1">
+          <div class="name-line"><span class="name">Camus VSOP Borderies</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">27 900</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Camus VSOP Borderies" disabled="">−</button>
+            <input id="q-cognac-1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Camus VSOP Borderies, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Camus VSOP Borderies">+</button>
+          </div>
+        </li><li class="row" data-k="cognac-2">
+          <div class="name-line"><span class="name">Camus VSOP</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">25 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Gift box</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Camus VSOP Gift box" disabled="">−</button>
+            <input id="q-cognac-2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Camus VSOP Gift box, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Camus VSOP Gift box">+</button>
+          </div>
+        </li><li class="row" data-k="cognac-3">
+          <div class="name-line"><span class="name">Courvoisier VS</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">21 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Courvoisier VS" disabled="">−</button>
+            <input id="q-cognac-3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Courvoisier VS, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Courvoisier VS">+</button>
+          </div>
+        </li><li class="row" data-k="cognac-4">
+          <div class="name-line"><span class="name">Courvoisier VSOP</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">26 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Courvoisier VSOP" disabled="">−</button>
+            <input id="q-cognac-4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Courvoisier VSOP, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Courvoisier VSOP">+</button>
+          </div>
+        </li><li class="row" data-k="cognac-5">
+          <div class="name-line"><span class="name">Hennessy VSOP</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">59 000</div>
+          <div class="meta"><span class="pill">1 L</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Hennessy VSOP" disabled="">−</button>
+            <input id="q-cognac-5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Hennessy VSOP, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Hennessy VSOP">+</button>
+          </div>
+        </li><li class="row" data-k="cognac-6">
+          <div class="name-line"><span class="name">JP Chenet Brandy XO</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 000</div>
+          <div class="meta"><span class="pill vol-small">0.7 L</span><span class="perl">≈ 10 000 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one JP Chenet Brandy XO" disabled="">−</button>
+            <input id="q-cognac-6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of JP Chenet Brandy XO, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one JP Chenet Brandy XO">+</button>
+          </div>
+        </li></ul>
+    </section><section class="cat" id="other" style="--c: var(--other)" aria-labelledby="h-other">
+      <div class="cat-head">
+        <h2 id="h-other">Other Beverages</h2>
+        <span class="range">23 products · <b>6 300</b> – <b>14 000</b></span>
+      </div>
+      <ul class="rows"><li class="row" data-k="other-0">
+          <div class="name-line"><span class="name">Jägermeister</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">10 500</div>
+          <div class="meta"><span class="pill">1 L</span><span>Herbal liqueur</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Jägermeister Herbal liqueur" disabled="">−</button>
+            <input id="q-other-0" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Jägermeister Herbal liqueur, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Jägermeister Herbal liqueur">+</button>
+          </div>
+        </li><li class="row" data-k="other-1">
+          <div class="name-line"><span class="name">Havana Club 3 Años</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">11 500</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Havana Club 3 Años Rum" disabled="">−</button>
+            <input id="q-other-1" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Havana Club 3 Años Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Havana Club 3 Años Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-2">
+          <div class="name-line"><span class="name">Havana Club Añejo Especial</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">11 900</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Havana Club Añejo Especial Rum" disabled="">−</button>
+            <input id="q-other-2" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Havana Club Añejo Especial Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Havana Club Añejo Especial Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-3">
+          <div class="name-line"><span class="name">Malibu Coconut Rum Liqueur</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Liqueur</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Malibu Coconut Rum Liqueur Liqueur" disabled="">−</button>
+            <input id="q-other-3" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Malibu Coconut Rum Liqueur Liqueur, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Malibu Coconut Rum Liqueur Liqueur">+</button>
+          </div>
+        </li><li class="row" data-k="other-4">
+          <div class="name-line"><span class="name">Baileys Original Irish Cream</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">13 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Cream liqueur</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Baileys Original Irish Cream Cream liqueur" disabled="">−</button>
+            <input id="q-other-4" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Baileys Original Irish Cream Cream liqueur, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Baileys Original Irish Cream Cream liqueur">+</button>
+          </div>
+        </li><li class="row" data-k="other-5">
+          <div class="name-line"><span class="name">Captain Morgan Original Spiced</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Captain Morgan Original Spiced Rum" disabled="">−</button>
+            <input id="q-other-5" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Captain Morgan Original Spiced Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Captain Morgan Original Spiced Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-6">
+          <div class="name-line"><span class="name">Absente</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 300</div>
+          <div class="meta"><span class="pill vol-small">0.7 L</span><span>Absinthe</span><span class="perl">≈ 13 300 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Absente Absinthe" disabled="">−</button>
+            <input id="q-other-6" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Absente Absinthe, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Absente Absinthe">+</button>
+          </div>
+        </li><li class="row" data-k="other-7">
+          <div class="name-line"><span class="name">Becherovka Carlsbad</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">8 900</div>
+          <div class="meta"><span class="pill">1 L</span><span>Herbal liqueur</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Becherovka Carlsbad Herbal liqueur" disabled="">−</button>
+            <input id="q-other-7" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Becherovka Carlsbad Herbal liqueur, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Becherovka Carlsbad Herbal liqueur">+</button>
+          </div>
+        </li><li class="row" data-k="other-8">
+          <div class="name-line"><span class="name">Sheridan's Double Liqueur</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">14 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Cream liqueur</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Sheridan's Double Liqueur Cream liqueur" disabled="">−</button>
+            <input id="q-other-8" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Sheridan's Double Liqueur Cream liqueur, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Sheridan's Double Liqueur Cream liqueur">+</button>
+          </div>
+        </li><li class="row" data-k="other-9">
+          <div class="name-line"><span class="name">XUXU Liqueur</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">12 800</div>
+          <div class="meta"><span class="pill">1 L</span><span>Liqueur</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one XUXU Liqueur Liqueur" disabled="">−</button>
+            <input id="q-other-9" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of XUXU Liqueur Liqueur, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one XUXU Liqueur Liqueur">+</button>
+          </div>
+        </li><li class="row" data-k="other-10">
+          <div class="name-line"><span class="name">Bacardí Carta Negra (Black)</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">11 500</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Bacardí Carta Negra (Black) Rum" disabled="">−</button>
+            <input id="q-other-10" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Bacardí Carta Negra (Black) Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Bacardí Carta Negra (Black) Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-11">
+          <div class="name-line"><span class="name">Bacardí Carta Blanca (Superior)</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">11 500</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Bacardí Carta Blanca (Superior) Rum" disabled="">−</button>
+            <input id="q-other-11" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Bacardí Carta Blanca (Superior) Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Bacardí Carta Blanca (Superior) Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-12">
+          <div class="name-line"><span class="name">Aperol</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 500</div>
+          <div class="meta"><span class="pill">1 L</span><span>Aperitif</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Aperol Aperitif" disabled="">−</button>
+            <input id="q-other-12" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Aperol Aperitif, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Aperol Aperitif">+</button>
+          </div>
+        </li><li class="row" data-k="other-13">
+          <div class="name-line"><span class="name">Campari Bitter</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 500</div>
+          <div class="meta"><span class="pill">1 L</span><span>Aperitif</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Campari Bitter Aperitif" disabled="">−</button>
+            <input id="q-other-13" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Campari Bitter Aperitif, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Campari Bitter Aperitif">+</button>
+          </div>
+        </li><li class="row" data-k="other-14">
+          <div class="name-line"><span class="name">Martini Bianco</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 900</div>
+          <div class="meta"><span class="pill">1 L</span><span>Vermouth</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Martini Bianco Vermouth" disabled="">−</button>
+            <input id="q-other-14" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Martini Bianco Vermouth, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Martini Bianco Vermouth">+</button>
+          </div>
+        </li><li class="row" data-k="other-15">
+          <div class="name-line"><span class="name">Martini Rosso</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 900</div>
+          <div class="meta"><span class="pill">1 L</span><span>Vermouth</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Martini Rosso Vermouth" disabled="">−</button>
+            <input id="q-other-15" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Martini Rosso Vermouth, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Martini Rosso Vermouth">+</button>
+          </div>
+        </li><li class="row" data-k="other-16">
+          <div class="name-line"><span class="name">Captain Morgan Black Spiced</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">10 600</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Captain Morgan Black Spiced Rum" disabled="">−</button>
+            <input id="q-other-16" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Captain Morgan Black Spiced Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Captain Morgan Black Spiced Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-17">
+          <div class="name-line"><span class="name">Captain Morgan Dark Rum (Black Label)</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Rum</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Captain Morgan Dark Rum (Black Label) Rum" disabled="">−</button>
+            <input id="q-other-17" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Captain Morgan Dark Rum (Black Label) Rum, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Captain Morgan Dark Rum (Black Label) Rum">+</button>
+          </div>
+        </li><li class="row" data-k="other-18">
+          <div class="name-line"><span class="name">Cinzano Bianco</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">6 300</div>
+          <div class="meta"><span class="pill">1 L</span><span class="pill">15% ABV</span><span>Vermouth</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Cinzano Bianco Vermouth" disabled="">−</button>
+            <input id="q-other-18" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Cinzano Bianco Vermouth, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Cinzano Bianco Vermouth">+</button>
+          </div>
+        </li><li class="row" data-k="other-19">
+          <div class="name-line"><span class="name">Cinzano Extra Dry</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">6 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="pill">15% ABV</span><span>Vermouth</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Cinzano Extra Dry Vermouth" disabled="">−</button>
+            <input id="q-other-19" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Cinzano Extra Dry Vermouth, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Cinzano Extra Dry Vermouth">+</button>
+          </div>
+        </li><li class="row" data-k="other-20">
+          <div class="name-line"><span class="name">Cinzano Rosso</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">6 500</div>
+          <div class="meta"><span class="pill">1 L</span><span class="pill">15% ABV</span><span>Vermouth</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Cinzano Rosso Vermouth" disabled="">−</button>
+            <input id="q-other-20" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Cinzano Rosso Vermouth, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Cinzano Rosso Vermouth">+</button>
+          </div>
+        </li><li class="row" data-k="other-21">
+          <div class="name-line"><span class="name">Cinzano Prosecco</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">7 200</div>
+          <div class="meta"><span class="pill vol-small">0.75 L</span><span class="pill">9.5% ABV</span><span>Sparkling</span><span class="perl">≈ 9 600 per litre</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Cinzano Prosecco Sparkling" disabled="">−</button>
+            <input id="q-other-21" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Cinzano Prosecco Sparkling, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Cinzano Prosecco Sparkling">+</button>
+          </div>
+        </li><li class="row" data-k="other-22">
+          <div class="name-line"><span class="name">Asti Martini</span><span class="leader" aria-hidden="true"></span></div>
+          <div class="price">9 000</div>
+          <div class="meta"><span class="pill">1 L</span><span>Sparkling</span><span class="line-sum"></span></div>
+          <div class="qty">
+            <button type="button" data-d="-1" aria-label="Remove one Asti Martini Sparkling" disabled="">−</button>
+            <input id="q-other-22" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="0" aria-label="Quantity of Asti Martini Sparkling, 0 to 48">
+            <button type="button" data-d="1" aria-label="Add one Asti Martini Sparkling">+</button>
+          </div>
+        </li></ul>
+    </section></div>
 </main>
 
 <footer>
   <div class="wrap">
     <p>Prices are per bottle, as given in the source sheet. Bottles under 1 litre also show the equivalent price per litre so they can be compared directly.</p>
     <p>Product names were tidied from the original spreadsheet (spelling and capitalisation); prices and volumes are unchanged.</p>
-    <p>Use the + and − buttons to choose up to 48 bottles of each product. Your selection is kept on this device until you clear it.</p>
+    <p class="js-only">Use the + and − buttons to choose up to 48 bottles of each product. Your selection is kept on this device until you clear it.</p>
   </div>
 </footer>
 
 <div class="cart" id="cart">
-  <div class="cart-panel" id="cartPanel" hidden>
+  <div class="cart-panel" id="cartPanel" hidden="">
     <div class="wrap">
       <h3>Your order</h3>
       <ul class="olist" id="olist"></ul>
@@ -279,12 +1000,12 @@ footer p { margin: 0 0 6px; max-width: 65ch; }
         <button class="cbtn" id="clearOrder" type="button">Clear all</button>
         <span class="cart-msg" id="cartMsg" role="status"></span>
       </div>
-      <textarea id="copyFallback" aria-label="Order text" readonly rows="6" hidden style="width:100%;font:inherit;font-size:13px;padding:8px;border-radius:8px"></textarea>
+      <textarea id="copyFallback" aria-label="Order text" readonly="" rows="6" hidden="" style="width:100%;font:inherit;font-size:13px;padding:8px;border-radius:8px"></textarea>
       <p class="cart-note">Up to 48 bottles per product.</p>
     </div>
   </div>
   <div class="wrap cart-bar">
-    <button class="cart-toggle" id="cartToggle" type="button" aria-expanded="false" aria-controls="cartPanel">
+    <button class="cart-toggle" id="cartToggle" type="button" aria-expanded="false" aria-controls="cartPanel" disabled="">
       <span class="cart-count" id="cartCount">No products selected</span>
       <span class="cart-hint" id="cartHint">Tap + next to a product to add it</span>
     </button>
@@ -293,6 +1014,7 @@ footer p { margin: 0 0 6px; max-width: 65ch; }
 </div>
 
 <script>
+document.documentElement.classList.add("js");
 const CATS = [
   { id: "vodka", name: "Vodka", c: "--vodka", items: [
     ["Absolut", 8300, 1], ["Finlandia", 8100, 1], ["Danzka", 7600, 1], ["Belenkaya", 5600, 1],
@@ -571,5 +1293,6 @@ window.addEventListener("hashchange", goHash);
 goHash();
 </script>
 
-</body>
-</html>
+
+
+</body></html>
