@@ -181,6 +181,9 @@ li.row.on .qty { border-color: var(--accent); }
 .line-sum:empty { display: none; }
 html:not(.js) .qty, html:not(.js) .cart, html:not(.js) .controls, html:not(.js) .js-only { display: none !important; }
 html:not(.js) body { padding-bottom: 0; }
+.nojs-note { display: none; margin-top: 16px; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--accent); background: var(--sel); font-size: 14px; max-width: 60ch; }
+.nojs-note b { color: var(--accent); }
+html:not(.js) .nojs-note { display: block; }
 @media (pointer: coarse) { .qty button { width: 42px; height: 40px; } .qty input { width: 42px; height: 40px; } }
 
 .cart { position: fixed; left: 0; right: 0; bottom: 0; z-index: 8; background: var(--ink); color: var(--bg); padding-bottom: env(safe-area-inset-bottom, 0px); box-shadow: 0 -6px 24px rgba(0, 0, 0, .18); }
@@ -236,6 +239,7 @@ footer p { margin: 0 0 6px; max-width: 65ch; }
     <div class="eyebrow">Wholesale · Spirits &amp; Liqueurs</div>
     <h1>Spirits Price List</h1>
     <div class="facts" id="facts"><span><b>76</b> products</span><span><b>6</b> categories</span><span>From <b>4 500</b> to <b>81 000</b> per bottle</span></div>
+    <p class="nojs-note"><b>To choose products and see the order total,</b> open this page in Safari or Chrome. File previews in Files, WhatsApp or Telegram only show the list. On iPhone, tap the Share button, then “Open in Safari”.</p>
   </div>
 </header>
 
